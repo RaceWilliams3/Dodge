@@ -6,10 +6,12 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public bool playerDead;
-    private float time = 0.0f;
+    public bool playerDead = false;
 
-    public TMP scoreText;
+    private float score;
+
+    public TMP_Text scoreText;
+    public GameObject deathText;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +22,19 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = Time.time.ToString();
+        if (!playerDead)
+        {
+            scoreText.text = Time.time.ToString("0");
+            score = Time.time;
+        } else
+        {
+            scoreText.text = score.ToString("0");
+        }
+        
+
+        if (playerDead)
+        {
+            deathText.active = true;
+        }
     }
 }

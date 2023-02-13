@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TurretControl : Kinematic
 {
-    Face myRotateType;
+    private Face myRotateType;
+    private Wander myMoveType;
 
     public float fireRate;
     private float nextFire = 0f;
@@ -16,6 +17,10 @@ public class TurretControl : Kinematic
         myRotateType = new Face();
         myRotateType.character = this;
         myRotateType.target = myTarget;
+
+        myMoveType = new Wander();
+        myMoveType.character = this;
+        myMoveType.characterTrans = GetComponent<Transform>();
     }
 
     protected override void Update()
@@ -23,6 +28,7 @@ public class TurretControl : Kinematic
         steeringUpdate = new SteeringOutput();
 
         steeringUpdate.angular = myRotateType.getSteering().angular;
+        steeringUpdate.linear = myMoveType.getSteering().linear;
 
         base.Update();
 
