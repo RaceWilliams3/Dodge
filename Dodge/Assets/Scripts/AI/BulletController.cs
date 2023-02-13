@@ -12,4 +12,5 @@ public class BulletController : MonoBehaviour
         player = GameObject.Find("Player");
         GetComponent<Pursuer>().myTarget = player;
     }
+
 }

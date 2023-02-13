@@ -20,19 +20,23 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKey("a") && !hasDied)
         {
-            rb.AddForce(-speed, 0, 0, ForceMode.Force);
+            //rb.AddForce(-speed, 0, 0, ForceMode.Force);
+            this.GetComponent<Transform>().position += new Vector3(-speed, 0, 0);
         }
         if (Input.GetKey("d") && !hasDied)
         {
-            rb.AddForce(speed, 0, 0, ForceMode.Force);
+            //rb.AddForce(speed, 0, 0, ForceMode.Force);
+            this.GetComponent<Transform>().position += new Vector3(speed, 0, 0);
         }
         if (Input.GetKey("w") && !hasDied)
         {
-            rb.AddForce(0, 0, speed, ForceMode.Force);
+            //rb.AddForce(0, 0, speed, ForceMode.Force);
+            this.GetComponent<Transform>().position += new Vector3(0, 0, speed);
         }
         if (Input.GetKey("s") && !hasDied)
         {
-            rb.AddForce(0, 0, -speed, ForceMode.Force);
+            //rb.AddForce(0, 0, -speed, ForceMode.Force);
+            this.GetComponent<Transform>().position += new Vector3(0, 0, -speed);
         }
 
     }

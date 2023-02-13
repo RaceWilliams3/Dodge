@@ -5,7 +5,7 @@ using UnityEngine;
 public class Pursuer : Kinematic
 {
     Pursue myMoveType;
-    Face myRotateType;
+    LookWhereGoing myRotateType;
 
     // Start is called before the first frame update
     void Start()
@@ -14,7 +14,7 @@ public class Pursuer : Kinematic
         myMoveType.character = this;
         myMoveType.target = myTarget;
 
-        myRotateType = new Face();
+        myRotateType = new LookWhereGoing();
         myRotateType.character = this;
         myRotateType.target = myTarget;
 
