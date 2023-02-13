@@ -32,7 +32,7 @@ public class TurretControl : Kinematic
 
         base.Update();
 
-        if (Time.time > nextFire && Time.time > 1)
+        if (Time.time > nextFire && Time.time > fireRate)
         {
             nextFire = Time.time + fireRate;
             Instantiate(bullet, new Vector3(transform.position.x, 1.5f, transform.position.z), transform.rotation);
